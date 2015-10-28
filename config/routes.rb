@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
+  
+  resources :sessions
+  get "login", to: "sessions#new"
+  post "login", to: "session#create"
+  get "signup", to: "sessions#signup_form"
+  post "signup", to: "sessions#signup"
+  get 'logout', to: "sessions#logout"
+
+  resources :admins
+  resources :users
   resources :posts
+  resources :sessions
   get 'about' => 'pages#about'
 
   root 'pages#welcome'
