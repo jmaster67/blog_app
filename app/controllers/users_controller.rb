@@ -33,7 +33,6 @@ class UsersController < ApplicationController
   def update
       if @user.update(user_params)
          redirect_to @user, notice: 'User was successfully updated.' 
-         render :show, status: :ok, location: @user 
       else
         render :edit  
       end
@@ -53,6 +52,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :fname, :lname, :password)
+      params.require(:user).permit(:email, :fname, :lname, :password, :name)
     end
 end

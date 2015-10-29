@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   
   resources :sessions
   get "login", to: "sessions#new"
-  post "login", to: "session#create"
+  post "login", to: "sessions#create"
   get "signup", to: "sessions#signup_form"
   post "signup", to: "sessions#signup"
-  get 'logout', to: "sessions#logout"
+  delete 'logout'  => 'sessions#destroy'
 
   resources :admins
   resources :users
