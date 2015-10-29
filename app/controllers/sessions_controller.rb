@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:session][:email])
     if @user && @user.password == (params[:session][:password])
       session[:user_id] = @user.id
-        redirect_to new_post_path
+        redirect_to welcome_path
       else
        flash.now[:danger] = 'Invalid email/password combination' 
     render "new"

@@ -14,6 +14,7 @@ class AdminsController < ApplicationController
   # GET /admins/new
   def new
     @admin = Admin.new
+    render layout: 'admins'
   end
 
   # GET /admins/1/edit
@@ -24,7 +25,7 @@ class AdminsController < ApplicationController
   def create
     @admin = Admin.new(admin_params)
       if @admin.save
-        redirect_to '/', notice: 'Admin was successfully created.' 
+        redirect_to welcome_path, notice: 'Admin was successfully created.' 
       else
        render :new 
       end
